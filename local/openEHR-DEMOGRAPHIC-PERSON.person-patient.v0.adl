@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"12b967ea6a1e16026fc245302c60413e">
+		["MD5-CAM-1.0.1"] = <"59444aa6aa6e052984f5cae8ac43bf58">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -56,10 +56,9 @@ definition
 		contacts cardinality matches {1..*; unordered} matches {
 			CONTACT[at0003.1] matches {    -- Contacts
 				addresses cardinality matches {1..*; unordered} matches {
-					allow_archetype ADDRESS[at0030] matches {    -- Addresses
+					allow_archetype ADDRESS[at0030.1] matches {    -- Addresses
 						include
-							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.address([a-zA-Z0-9_-]+)*\.v0/}
-							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.electronic_communication[a-zA-Z0-9_-]*\.v0/}
+							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.address([a-zA-Z0-9_-]+)*\.v0|openEHR-DEMOGRAPHIC-ADDRESS\.electronic_communication[a-zA-Z0-9_-]*\.v0|openEHR-DEMOGRAPHIC-ADDRESS\.electronic_communication-provider\.v0|openEHR-DEMOGRAPHIC-ADDRESS\.address\.v0|openEHR-DEMOGRAPHIC-ADDRESS\.address-provider\.v0/}
 					}
 				}
 			}
@@ -181,6 +180,10 @@ ontology
 				["at0040"] = <
 					text = <"Relationship type">
 					description = <"Defines the type of relationship between related persons.">
+				>
+				["at0030.1"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 			>
 		>
