@@ -6,6 +6,32 @@ concept
 
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Darin Leonhardt">
+				["organisation"] = <"PLRI">
+				["email"] = <"leonhardt.darin@mh-hannover.de">
+			>
+			accreditation = <"-">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			author = <
+				["name"] = <"Sergio Miranda Freire">
+				["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+				["email"] = <"sergio@lampada.uerj.br">
+			>
+		>
+		["es-py"] = <
+			language = <[ISO_639-1::es-py]>
+			author = <
+				["name"] = <"Ellen Mendez">
+				["organisation"] = <"Facultad Politecnica - UNA">
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -17,12 +43,33 @@ description
 	lifecycle_state = <"in_development">
 	other_contributors = <"Rigoleta Dutra, Ministry of Defense, Brazil (openEHR Editor)","Sergio Freire, State University of Rio de Janeiro, Brazil (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)">
 	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Darstellung der demographischen Daten einer Person wie Geburtsdaten, Sterbedaten, Geschlecht, Familienstand, ethnische Gruppe und biometrischer Identifikator.">
+			keywords = <"demographischer Bereich","demographische Daten der Person">
+			copyright = <"© openEHR Foundation">
+			use = <"Der Archetyp wird im demographischen Bereich zur Erfassung der demografischen Daten einer Person verwendet.">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Representação de dados demográficos de uma pessoa, tais como dados do nascimento, do óbito, sexo, estado civil, grupo étnico e identificador biométrico">
+			keywords = <"serviço demográfico","dados demográficos de uma pessoa">
+			copyright = <"© openEHR Foundation">
+			use = <"Usado em serviço demográficos para coletar os dados demográficos de uma pessoa">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Representation of a person's demographic data such as, birth data, death data, sex, marital status, ethnic group and biometric identifier">
 			keywords = <"demographic service","person's demographic data">
 			copyright = <"© openEHR Foundation">
 			use = <"Used in demographic service to collect a person's demographic data">
+		>
+		["es-py"] = <
+			language = <[ISO_639-1::es-py]>
+			purpose = <"Representación de los datos demográficos de una persona, tales como datos de nacimiento, de defunción, sexo, estado civil, grupo étnico e identificador biométrico.">
+			keywords = <"servicio demográfico","datos demográficos de una persona">
+			copyright = <"© openEHR Foundation">
+			use = <"Utilizado en servicios demográficos para recolectar los datos demográficos de una persona.">
 		>
 	>
 	other_details = <
@@ -31,9 +78,9 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"921437db31d0f079a17f64f9d91583e3">
 		["build_uid"] = <"f3e02a6f-69d2-4754-acea-30e7bebdf7d2">
 		["revision"] = <"0.0.1-alpha">
+		["MD5-CAM-1.0.1"] = <"bd7406ca247993cf8dce2db5cf37593b">
 	>
 
 definition
@@ -259,6 +306,246 @@ definition
 
 ontology
 	term_definitions = <
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dados da pessoa">
+					description = <"Dados demográficos da pessoa tais como dados sobre o nascimento, do óbito, sexo, estado civil, grupo étnico e identificador biométrico">
+				>
+				["at0001"] = <
+					text = <"Dados do nascimento">
+					description = <"Dados demográficos do nascimento">
+				>
+				["at0002"] = <
+					text = <"Dados do óbito">
+					description = <"Dados demográficos do óbito">
+				>
+				["at0004"] = <
+					text = <"Identificador biométrico">
+					description = <"Identificador biométrico de uma pessoa">
+				>
+				["at0005"] = <
+					text = <"Identificadores da pessoa">
+					description = <"Outros documentos de identificação usados pela pessoa: documento de identidade, carteira de motorista, etc">
+				>
+				["at0006"] = <
+					text = <"Dados específicos de nascimento de um país">
+					description = <"Dados adicionais da certidão de nascimento que são específicos de cada país">
+				>
+				["at0010"] = <
+					text = <"Data do nascimento">
+					description = <"A data do nascimento da pessoa">
+				>
+				["at0011"] = <
+					text = <"Indicador de seguimento da data de nascimento">
+					description = <"Indicador que informa quando a data de nascimento corrente precisa de ser acompanhada para obter uma data mais acurada.">
+				>
+				["at0012"] = <
+					text = <"país de nascimento">
+					description = <"O país onde a pessoa nasceu">
+				>
+				["at0013"] = <
+					text = <"Estado/território/província">
+					description = <"O estado/território/província onde a pessoa nasceu">
+				>
+				["at0014"] = <
+					text = <"Cidade/localidade">
+					description = <"A cidade/localidade onde a pessoa nasceu">
+				>
+				["at0015"] = <
+					text = <"Nascimento multiplo">
+					description = <"Um indicador de nascimento múltiplo, mostrando o número total de nascimentos resultantes de uma única gestação">
+				>
+				["at0016"] = <
+					text = <"Ordem de Nascimento">
+					description = <"A ordem seqüencial desta pessoa em um nascimento múltiplo, não importando se foi um nascido vivo ou morto">
+				>
+				["at0017"] = <
+					text = <"sexo">
+					description = <"sexo da pessoa">
+				>
+				["at0018"] = <
+					text = <"Cartório">
+					description = <"Nome do cartório que emitiu a certidão de nascimento">
+				>
+				["at0021"] = <
+					text = <"Data do óbito">
+					description = <"A data do óbito da pessoa">
+				>
+				["at0022"] = <
+					text = <"Fonte da notificação">
+					description = <"Um código que informa sobre a fonte de notificação do óbito. Este campo fornece uma indicação da confiabilidade da informação">
+				>
+				["at0023"] = <
+					text = <"País">
+					description = <"O país onde a pessoa faleceu">
+				>
+				["at0024"] = <
+					text = <"Estado/território/província">
+					description = <"O estado/território/província onde a pessoa faleceu">
+				>
+				["at0025"] = <
+					text = <"Cidade/localidade">
+					description = <"A cidade/localidade onde a pessoa faleceu">
+				>
+				["at0026"] = <
+					text = <"Número do certificado">
+					description = <"Informa o número do certificado de óbito">
+				>
+				["at0031"] = <
+					text = <"Gênero">
+					description = <"O gênero da pessoa">
+				>
+				["at0032"] = <
+					text = <"Sobrenome da Mãe">
+					description = <"Sobrenome da mãe">
+				>
+				["at0033"] = <
+					text = <"Estado Civil">
+					description = <"Estado Civil">
+				>
+				["at0034"] = <
+					text = <"Etnia">
+					description = <"Grupo étnico ao qual a pessoa pertence">
+				>
+				["at0035"] = <
+					text = <"Comentários de identificação">
+					description = <"Comentários registrados para uma pessoa para distinguir entre duas ou mais pessoas com a mesma informação demográfica ou similar.">
+				>
+				["at0041"] = <
+					text = <"Tipo">
+					description = <"Tipo do identificador biométrico">
+				>
+				["at0042"] = <
+					text = <"Template do identificador">
+					description = <"O formato para um BIR que é completamente definido por um patrono do CBEFF">
+				>
+				["at0043"] = <
+					text = <"Qualidade do registro biométrico">
+					description = <"Um número que indica a qualidade do registro biométrico">
+				>
+				["at0044"] = <
+					text = <"Autoridade criadora">
+					description = <"Indica a organização que criou o objeto biométrico">
+				>
+				["at0045"] = <
+					text = <"Localização do identificador">
+					description = <"Quando o objeto biométrico puder representar um conjunto de opções alternativas, as localizações específicas devem ser identificadas. Se o objeto biométrico representa mais de uma, múltiplas localizações devem ser indicadas">
+				>
+				["at0046"] = <
+					text = <"Identificação do equipamento biométrico">
+					description = <"Um identificador atribuído a um produto biométrico que o identifica de maneira não ambígua dentre os produtos biométricos que receberam um identificador de um proprietário de produtos biométricos">
+				>
+				["at0047"] = <
+					text = <"Versão do processo">
+					description = <"Versão do processo usado para produzir o objeto biométrico. Está relacionada ao software usado, e não à especificação do equipamento. Valor(es) abstrato(s) definido(s) pela especificação do formato do patrono que identifica(m) uma versão do formato">
+				>
+				["at0048"] = <
+					text = <"Data de criação">
+					description = <"A data na qual o identificador biométrico foi criado">
+				>
+				["at0220"] = <
+					text = <"Cartório">
+					description = <"Indica que este óbito foi comunicado por um cartório">
+				>
+				["at0221"] = <
+					text = <"Prestador de assistência à saúde">
+					description = <"Indica que este óbito foi comunicado por um prestador de assistência à saúde">
+				>
+				["at0222"] = <
+					text = <"Parente">
+					description = <"Indica que este óbito foi comunicado por um parente">
+				>
+				["at0223"] = <
+					text = <"Outra fonte">
+					description = <"Indica que este óbito foi comunicado por uma outra fonte">
+				>
+				["at0224"] = <
+					text = <"Desconhecida">
+					description = <"Indica que a fonte de notificação deste óbito é desconhecida">
+				>
+				["at0310"] = <
+					text = <"Masculino">
+					description = <"Sexo masculino">
+				>
+				["at0311"] = <
+					text = <"Feminino">
+					description = <"Sexo feminino">
+				>
+				["at0312"] = <
+					text = <"Intersexo ou indeterminado">
+					description = <"Usado normalmente para bebês para os quais o sexo não foi determinado por qualquer razão. Não deve ser usado em formulários de coleta de dados completados pelo respondente e deve ser usado somente se a pessoa ou respondente voluntariamente afirma que a pessoa é intersexo ou onde fica claro durante o processo de coleta que o indivíduo não é nem do sexo masculino nem feminino">
+				>
+				["at0313"] = <
+					text = <"Não declarado/inadequadamente descrito">
+					description = <"Não é para ser usado em formulários de coleta primária. É primariamente usado em coleções administrativas, ao transferir conjuntos de dados onde o item não foi coletado">
+				>
+				["at0410"] = <
+					text = <"Impressão digital - rolada">
+					description = <"Impressão digital - rolada">
+				>
+				["at0411"] = <
+					text = <"Impressão digital - plana">
+					description = <"Impressão digital - plana">
+				>
+				["at0412"] = <
+					text = <"Características faciais">
+					description = <"Características faciais">
+				>
+				["at0413"] = <
+					text = <"Voz">
+					description = <"Voz">
+				>
+				["at0414"] = <
+					text = <"Íris">
+					description = <"Íris">
+				>
+				["at0415"] = <
+					text = <"Retina">
+					description = <"Retina">
+				>
+				["at0416"] = <
+					text = <"Geometria da mão">
+					description = <"Geometria da mão">
+				>
+				["at0417"] = <
+					text = <"Dinâmica da assinatura">
+					description = <"Dinâmica da assinatura">
+				>
+				["at0418"] = <
+					text = <"Dinâmica da digitação">
+					description = <"Dinâmica da digitação">
+				>
+				["at0419"] = <
+					text = <"Movimento dos lábios">
+					description = <"Movimento dos lábios">
+				>
+				["at0420"] = <
+					text = <"Imagem térmica da face">
+					description = <"Imagem térmica da face">
+				>
+				["at0421"] = <
+					text = <"Imagem térmica da mão">
+					description = <"Imagem térmica da mão">
+				>
+				["at0422"] = <
+					text = <"Andar">
+					description = <"Andar">
+				>
+				["at0423"] = <
+					text = <"Tipo sanguíneo (incluindo fator RH)">
+					description = <"Tipo sanguíneo (incluindo fator RH)">
+				>
+				["at0424"] = <
+					text = <"DNA">
+					description = <"DNA">
+				>
+				["at0425"] = <
+					text = <"Desconhecido">
+					description = <"Desconhecido">
+				>
+			>
+		>
 		["en"] = <
 			items = <
 				["at0000"] = <
@@ -496,6 +783,486 @@ ontology
 				["at0425"] = <
 					text = <"Unknown">
 					description = <"Unknown">
+				>
+			>
+		>
+		["es-py"] = <
+			items = <
+				["at0000"] = <
+					text = <"Datos de la persona">
+					description = <"Datos demográficos de personas tales como datos sobre su nacimiento, de defunción, sexo, estado civil, grupo étnico e identificador biométrico.">
+				>
+				["at0001"] = <
+					text = <"Datos del nacimiento">
+					description = <"Datos demográficos del nacimiento">
+				>
+				["at0002"] = <
+					text = <"Datos de defunción">
+					description = <"Datos demográficos de defunción">
+				>
+				["at0004"] = <
+					text = <"Identificador biométrico">
+					description = <"Identificador biométrico de una persona">
+				>
+				["at0005"] = <
+					text = <"Identificadores de la persona">
+					description = <"Otros documentos de identificación usados por la persona: Documento de identidad, registro de conducir, etc.">
+				>
+				["at0006"] = <
+					text = <"Datos específicos del nacimiento en un país">
+					description = <"Datos adicionales de certificación de nacimiento que son específicos de cada país.">
+				>
+				["at0010"] = <
+					text = <"Datos del nacimiento">
+					description = <"La fecha de nacimiento de la persona.">
+				>
+				["at0011"] = <
+					text = <"Indicador de seguimiento de la fecha de nacimiento">
+					description = <"Indicador que informa cuando una fecha de nacimiento corriente necesita ser acompañada para obtener una fecha mas precisa.">
+				>
+				["at0012"] = <
+					text = <"Pais de nacimiento">
+					description = <"El país donde nació la persona.">
+				>
+				["at0013"] = <
+					text = <"Estado/Territorio/Provincia">
+					description = <"El estado/territorio/provincia donde la persona nació.">
+				>
+				["at0014"] = <
+					text = <"Ciudad/Localidad">
+					description = <"La ciudad/localidad donde la persona nació">
+				>
+				["at0015"] = <
+					text = <"Nacimiento múltiple">
+					description = <"Un indicador de nacimiento múltiple, mostrando el número total de nacimientos resultates de una única gestación.">
+				>
+				["at0016"] = <
+					text = <"Orden de Nacimiento">
+					description = <"El orden secuencial de esta persona en un nacimiento múltiple, no importando si fue un nacido vivo o muerto.">
+				>
+				["at0017"] = <
+					text = <"Sexo">
+					description = <"Sexo de la persona">
+				>
+				["at0018"] = <
+					text = <"Registro Civil">
+					description = <"Nombre del registro civil que emitió el certificado de nacimiento.">
+				>
+				["at0021"] = <
+					text = <"Fecha de defunción">
+					description = <"La fecha de defunción de la persona">
+				>
+				["at0022"] = <
+					text = <"Fuente de notificación">
+					description = <"Un código que informa sobre la fuente de notificación de la defunción. Este campo proporciona una indicación de confiabilidad de la información.">
+				>
+				["at0023"] = <
+					text = <"País">
+					description = <"El país donde la persona falleció.">
+				>
+				["at0024"] = <
+					text = <"Estado/territorio/província">
+					description = <"El estado/territorio/provincia donde la persona falleció.">
+				>
+				["at0025"] = <
+					text = <"Ciudad/Localidad">
+					description = <"La ciudad/localidad donde la persona falleció">
+				>
+				["at0026"] = <
+					text = <"Número de certificado">
+					description = <"Infoma el número de certificado de defunción.">
+				>
+				["at0031"] = <
+					text = <"Género">
+					description = <"El género de la persona">
+				>
+				["at0032"] = <
+					text = <"Apellido materno">
+					description = <"Apellido materno">
+				>
+				["at0033"] = <
+					text = <"Estado Civil">
+					description = <"Estado Civil">
+				>
+				["at0034"] = <
+					text = <"Etnia">
+					description = <"Grupo étnico al cual la persona pertenece">
+				>
+				["at0035"] = <
+					text = <"Comentarios de identificación">
+					description = <"Comentarios registrados para una persona para distinguir entre dos o mas personas con la misma información demográfica o similar.">
+				>
+				["at0041"] = <
+					text = <"Tipo">
+					description = <"Tipo de identificador biométrico">
+				>
+				["at0042"] = <
+					text = <"Plantilla del identificador">
+					description = <"El formato para un BIR que es completamente definido por un patrón de CBEFF">
+				>
+				["at0043"] = <
+					text = <"Calidad del registro biométrico">
+					description = <"Un número que indica la calidad del registro biométrico">
+				>
+				["at0044"] = <
+					text = <"Autoridad creadora">
+					description = <"Indica la organización que creo un objeto biométrico">
+				>
+				["at0045"] = <
+					text = <"Localización del identificador">
+					description = <"Cuando un objeto biométrico puede representar un conjunto de opciones alternativas, las localizaciiones específicas deben ser identificadas. Si un objeto biométrico representa mas de una, múltiples localizaciones deben ser indicadas.">
+				>
+				["at0046"] = <
+					text = <"Identificación del equipo biométrico">
+					description = <"Un identificador atribuido a un producto biométrico que lo identifica de manera no ambígua dentro de los productos biométricos que recibiran un identificador de un propietario de productos biométricos">
+				>
+				["at0047"] = <
+					text = <"Versión del proceso">
+					description = <"Versión del proceso utilizado para produzir un obejto biométrico. Esta relacionada al software utilizado,y no a la especificación de equipo. Valor(es) abstractos(s) definidos(s) por la especificación del formato del patrón que identifica(n) una versión del formato.">
+				>
+				["at0048"] = <
+					text = <"Fecha de creación">
+					description = <"La fecha en la cual el identificador biométrico fue creado">
+				>
+				["at0220"] = <
+					text = <"Registro Civil">
+					description = <"Indica que esta defunción fue comunicado por un registro civil.">
+				>
+				["at0221"] = <
+					text = <"Proveedor de asistencia a la salud">
+					description = <"Indica que esta defunción fue comunicada por un proveedor de asistencia a la salud.">
+				>
+				["at0222"] = <
+					text = <"Pariente">
+					description = <"Indica que esta defunción fue comunicada por un pariente.">
+				>
+				["at0223"] = <
+					text = <"Otra fuente">
+					description = <"Indica que esta defunción fue comunicada por otra fuente">
+				>
+				["at0224"] = <
+					text = <"Desconocida">
+					description = <"Indica que la fuente de notificación de la defunción es desconocida.">
+				>
+				["at0310"] = <
+					text = <"Mascuino">
+					description = <"Sexo masculino">
+				>
+				["at0311"] = <
+					text = <"Femenino">
+					description = <"Sexo femenino">
+				>
+				["at0312"] = <
+					text = <"Intersexo o indeterminado">
+					description = <"Usado normalmente para bebes los cuales el sexo no fue determiando por cualquier razón. No debe ser utilizado en formularios de recolección de datos completados por el responsable y deber ser usado solamente si la persona o responsable voluntariamente afirman que la persona es intersexo o donde queda claro durante el proceso de recolección que el indivíduo no es del sexo masculino ni femenino.">
+				>
+				["at0313"] = <
+					text = <"No declarado/inadequadamente descripto">
+					description = <"No es para ser utilizado en formularios de recolección primaria. Es princiapalmente utilizado para recolecciones administrativas, al transferir conjuntos de datos donde el item no fue recolectado.">
+				>
+				["at0410"] = <
+					text = <"Impresión digital - rolada">
+					description = <"Impresión digital - rolada">
+				>
+				["at0411"] = <
+					text = <"Impresión digital - plana">
+					description = <"Impresión digital - plana">
+				>
+				["at0412"] = <
+					text = <"Características faciales">
+					description = <"Características faciales">
+				>
+				["at0413"] = <
+					text = <"Voz">
+					description = <"Voz">
+				>
+				["at0414"] = <
+					text = <"Iris">
+					description = <"Iris">
+				>
+				["at0415"] = <
+					text = <"Retina">
+					description = <"Retina">
+				>
+				["at0416"] = <
+					text = <"Geometría de la mano">
+					description = <"Geometría de la mano">
+				>
+				["at0417"] = <
+					text = <"Dinámica de firma">
+					description = <"Dinámica de firma">
+				>
+				["at0418"] = <
+					text = <"Dinámica de digitación">
+					description = <"Dinámica de digitación">
+				>
+				["at0419"] = <
+					text = <"Movimiento de los labios">
+					description = <"Movimiento de los labios">
+				>
+				["at0420"] = <
+					text = <"Imágen térmica de la cara">
+					description = <"Imágen térmica de la cara">
+				>
+				["at0421"] = <
+					text = <"Imagen térmica de la mano">
+					description = <"Imagen térmica de la mano">
+				>
+				["at0422"] = <
+					text = <"Piso">
+					description = <"Piso">
+				>
+				["at0423"] = <
+					text = <"Tipo Sanguíneo (incluyendo factor RH)">
+					description = <"Tipo Sanguíneo (incluyendo factor RH)">
+				>
+				["at0424"] = <
+					text = <"DNA">
+					description = <"DNA">
+				>
+				["at0425"] = <
+					text = <"Desconocido">
+					description = <"Desconocido">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Personendaten">
+					description = <"Demographische Daten über eine Person wie Geburtsdaten, Sterbedaten, Geschlecht, Familienstand, ethnische Gruppe und biometrische Identifikatoren.">
+				>
+				["at0001"] = <
+					text = <"Angaben zur Geburt">
+					description = <"Demographische Daten zur Geburt.">
+				>
+				["at0002"] = <
+					text = <"Angaben zum Tod">
+					description = <"Demographische Daten zum Tod">
+				>
+				["at0004"] = <
+					text = <"Biometrischer Identifikator">
+					description = <"Biometrischer Identifikator einer Person.">
+				>
+				["at0005"] = <
+					text = <"Sonstige Personenkennzeichen">
+					description = <"Sonstige Personenkennzeichen: Personalausweis, Führerschein, etc..">
+				>
+				["at0006"] = <
+					text = <"Länderspezifische Daten zur Geburt">
+					description = <"Zusätzliche länderspezifische Geburtsdaten.">
+				>
+				["at0010"] = <
+					text = <"Geburtsdatum">
+					description = <"Das Geburtsdatum einer Person.">
+				>
+				["at0011"] = <
+					text = <"Indikator für Geburtsdatum (Follow-up)">
+					description = <"Markierung, welche anzeigt, wann das aktuelle Geburtsdatum verfolgt werden muss, um ein genaueres Datum zu erhalten.">
+				>
+				["at0012"] = <
+					text = <"Geburtsland">
+					description = <"Das Land, in dem eine Person geboren wurde.">
+				>
+				["at0013"] = <
+					text = <"Staat/Gebiet/Provinz">
+					description = <"Staat/Gebiet/Provinz, in dem die Person geboren wurde.">
+				>
+				["at0014"] = <
+					text = <"Stadt/Gemeinde/Ortschaft">
+					description = <"Die Stadt/der Ort, in der/dem die Person geboren wurde.">
+				>
+				["at0015"] = <
+					text = <"Geburtenhäufigkeit">
+					description = <"Ein Indikator für Mehrlingsgeburten, der die Anzahl der Geburten, die aus einer einzigen Schwangerschaft resultieren, angibt.">
+				>
+				["at0016"] = <
+					text = <"Geburtsfolge">
+					description = <"Die sequentielle Reihenfolge der Person bei einer Mehrlingsgeburt, unabhängig von Lebend- oder Totgeburt.">
+				>
+				["at0017"] = <
+					text = <"Geschlecht">
+					description = <"Das Geschlecht der Person.">
+				>
+				["at0018"] = <
+					text = <"Standesamt">
+					description = <"Standesamt, das die Geburtsurkunde ausgestellt hat.">
+				>
+				["at0021"] = <
+					text = <"Todesdatum">
+					description = <"Das Todesdatum einer Person">
+				>
+				["at0022"] = <
+					text = <"Meldestelle">
+					description = <"Gibt die Informationsquelle über den Tod eines Pflegebedürftigen an. Dieses Feld gibt einen Hinweis auf die Zuverlässigkeit der Informationen.">
+				>
+				["at0023"] = <
+					text = <"Land">
+					description = <"Das Land, in dem eine Person gestorben ist.">
+				>
+				["at0024"] = <
+					text = <"Land/Gebiet/Provinz">
+					description = <"Land/Gebiet/Provinz, in dem eine Person gestorben ist.">
+				>
+				["at0025"] = <
+					text = <"Stadt/Gemeinde/Ortschaft">
+					description = <"Die Stadt/der Ort, in der/dem eine Person gestorben ist.">
+				>
+				["at0026"] = <
+					text = <"Sterbeurkundennummer">
+					description = <"Die Nummer der Sterbeurkunde.">
+				>
+				["at0031"] = <
+					text = <"Geschlecht">
+					description = <"Das Geschlecht der Person.">
+				>
+				["at0032"] = <
+					text = <"Familienname der Mutter">
+					description = <"Ursprünglicher Familienname der Mutter">
+				>
+				["at0033"] = <
+					text = <"Familienstand">
+					description = <"Familienstand.">
+				>
+				["at0034"] = <
+					text = <"Ethnische Hintergrund">
+					description = <"Ethnischer Hintergrund der Person.">
+				>
+				["at0035"] = <
+					text = <"Anmerkung zur Identifikation">
+					description = <"Anmerkungen, die für eine Personenregistrierung aufgezeichnet werden, um zwischen zwei oder mehreren Personen mit denselben oder ähnlichen demografischen Informationen zu unterscheiden.">
+				>
+				["at0041"] = <
+					text = <"Art des biometrischen Merkmals">
+					description = <"Identifizierung der Art des biometrischen Identifikators, der durch diesen Datensatz beschrieben wird.">
+				>
+				["at0042"] = <
+					text = <"Vorlage für biometrische Daten">
+					description = <"Das Format für ein BIR, das vollständig durch einen CBEFF-Patron definiert ist.">
+				>
+				["at0043"] = <
+					text = <"Qualität der biometrischen Datenerfassung">
+					description = <"Ein numerischer Indikator für die Qualität des biometrischen Objekts.">
+				>
+				["at0044"] = <
+					text = <"Biometrische Erstellungsbehörde">
+					description = <"Dies zeigt die Organisation an, die das biometrische Merkmal erstellt hat.">
+				>
+				["at0045"] = <
+					text = <"Standort des biometrischen Identifikators">
+					description = <"Wenn die biometrischen Daten mehrere alternative Optionen darstellen könnten, sollte der spezifische Standort identifiziert werden. Wenn die Biometrie mehr als einen darstellt, sollten mehrere Standorte angegeben werden.">
+				>
+				["at0046"] = <
+					text = <"Biometrische Geräteidentifikation">
+					description = <"Eine einem biometrischen Produkt zugewiesene Kennung, die das biometrische Produkt innerhalb der biometrischen Produkte, denen von einem Eigentümer des biometrischen Produkts eine Kennung zugewiesen wurde, eindeutig identifiziert.">
+				>
+				["at0047"] = <
+					text = <"Biometrische Version">
+					description = <"Version des Prozesses, der zur Erstellung dieser Biometrie verwendet wird. Dies bezieht sich auf die verwendete Software und nicht auf die Gerätespezifikation. Abstrakte(r) Wert(e), definiert durch die Benutzerformatspezifikation, die eine Version des Benutzerformats identifizieren.">
+				>
+				["at0048"] = <
+					text = <"Biometrisches Erstellungsdatum">
+					description = <"Das Datum, an dem der biometrische Identifikator erstellt wurde.">
+				>
+				["at0220"] = <
+					text = <"Register">
+					description = <"Geben Sie an, dass es sich bei der Benachrichtigungsquelle um ein Register handelt.">
+				>
+				["at0221"] = <
+					text = <"Gesundheitsdienstleister">
+					description = <"Geben Sie an, dass die Benachrichtigungsquelle ein Gesundheitsdienstleister ist.">
+				>
+				["at0222"] = <
+					text = <"Verwandter">
+					description = <"Geben Sie an, dass es sich bei der Benachrichtigungsquelle um einen Verwandten handelt">
+				>
+				["at0223"] = <
+					text = <"Sonstige">
+					description = <"Geben Sie an, dass es sich bei der Benachrichtigungsquelle um eine andere Quelle handelt.">
+				>
+				["at0224"] = <
+					text = <"Unbekannt">
+					description = <"Geben Sie an, dass die Benachrichtigungsquelle unbekannt ist.">
+				>
+				["at0310"] = <
+					text = <"Männlich">
+					description = <"Männlich.">
+				>
+				["at0311"] = <
+					text = <"Weiblich">
+					description = <"Weiblich.">
+				>
+				["at0312"] = <
+					text = <"Intersex oder unbestimmt">
+					description = <"Wird in der Regel für Babys verwendet, deren Geschlecht aus welchen Gründen auch immer nicht bestimmt wurde, sollte im Allgemeinen nicht auf den vom Befragten ausgefüllten Datenerhebungsformularen verwendet werden und nur dann, wenn die Person oder der Befragte freiwillig angibt, dass die Person intersexuell ist, oder wenn während des Erhebungsprozesses auf andere Weise deutlich wird, dass die Person weder männlich noch weiblich ist.">
+				>
+				["at0313"] = <
+					text = <"Nicht angegeben/unzureichend beschrieben">
+					description = <"Darf nicht auf primären Erfassungsformularen verwendet werden. Es dient hauptsächlich zur Verwendung in administrativen Sammlungen, wenn Daten aus Datensätzen übertragen werden, in denen das Element nicht gesammelt wurde.">
+				>
+				["at0410"] = <
+					text = <"Fingerabdruck-gerollt">
+					description = <"Fingerabdruck-gerollt.">
+				>
+				["at0411"] = <
+					text = <"Fingerabdruck-flach">
+					description = <"Fingerabdruck-flach.">
+				>
+				["at0412"] = <
+					text = <"Gesichtsmerkmale">
+					description = <"Gesichtsmerkmale.">
+				>
+				["at0413"] = <
+					text = <"Stimme">
+					description = <"Stimme.">
+				>
+				["at0414"] = <
+					text = <"Iris">
+					description = <"Iris.">
+				>
+				["at0415"] = <
+					text = <"Netzhaut">
+					description = <"Netzhaut.">
+				>
+				["at0416"] = <
+					text = <"Handgeometrie">
+					description = <"Handgeometrie.">
+				>
+				["at0417"] = <
+					text = <"Dynamik der Unterschrift">
+					description = <"Dynamik der Unterschrift.">
+				>
+				["at0418"] = <
+					text = <"Dynamik der Tastenanschläge">
+					description = <"Dynamik der Tastenanschläge.">
+				>
+				["at0419"] = <
+					text = <"Lippenbewegung">
+					description = <"Lippenbewegung.">
+				>
+				["at0420"] = <
+					text = <"Wärmebild des Gesichts">
+					description = <"Wärmebild des Gesichts.">
+				>
+				["at0421"] = <
+					text = <"Wärmebild der Hand">
+					description = <"Wärmebild der Hand.">
+				>
+				["at0422"] = <
+					text = <"Gangart">
+					description = <"Gangart.">
+				>
+				["at0423"] = <
+					text = <"Blutgruppe (einschließlich Rhesusfaktor)">
+					description = <"Blutgruppe (einschließlich Rhesusfaktor).">
+				>
+				["at0424"] = <
+					text = <"DNA">
+					description = <"DNA.">
+				>
+				["at0425"] = <
+					text = <"Unbekannt">
+					description = <"Unbekannt.">
 				>
 			>
 		>
