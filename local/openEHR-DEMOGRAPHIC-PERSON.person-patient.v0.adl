@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"59444aa6aa6e052984f5cae8ac43bf58">
+		["MD5-CAM-1.0.1"] = <"52ca1c2a61051122246f20abec7bb1a7">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -66,6 +66,16 @@ definition
 		relationships cardinality matches {1..*; unordered} matches {
 			PARTY_RELATIONSHIP[at0004.1] matches {    -- Relationships
 				details matches {
+					ITEM_TREE[at0005] matches {    -- ITEM_TREE
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0040] matches {    -- Relationship type
+								value matches {
+									DV_TEXT matches {*}
+									DV_CODED_TEXT matches {*}
+								}
+							}
+						}
+					}
 					ITEM_TREE[at0.40] matches {    -- Personal relationship
 						items cardinality matches {0..*; unordered} matches {
 							ELEMENT[at0040] matches {    -- Relationship type
@@ -113,10 +123,6 @@ ontology
 					text = <"Patient">
 					description = <"Patient demographic data.">
 				>
-				["at0001"] = <
-					text = <"Demographic details">
-					description = <"A person's demographic details.">
-				>
 				["at0002.1"] = <
 					text = <"Name">
 					description = <"A patient's name.">
@@ -157,9 +163,17 @@ ontology
 					text = <"Patient identifier">
 					description = <"A patient identifier at the related healthcare provider.">
 				>
+				["at0030.1"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
+				>
 				["at0000"] = <
 					text = <"Person">
 					description = <"Personal demographic data.">
+				>
+				["at0001"] = <
+					text = <"Demographic details">
+					description = <"A person's demographic details.">
 				>
 				["at0002"] = <
 					text = <"Name">
@@ -181,9 +195,9 @@ ontology
 					text = <"Relationship type">
 					description = <"Defines the type of relationship between related persons.">
 				>
-				["at0030.1"] = <
-					text = <"Addresses">
-					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
+				["at0005"] = <
+					text = <"ITEM_TREE">
+					description = <"">
 				>
 			>
 		>
