@@ -32,7 +32,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"311d32cb5af5e558b2d6c5c2228e7ff2">
+		["MD5-CAM-1.0.1"] = <"c58f0b206dc3dd1b75f5293286b041fe">
 		["build_uid"] = <"78b7a3b4-34a8-4f97-ad46-08050ea96115">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -56,8 +56,7 @@ definition
 				addresses cardinality matches {1..*; unordered} matches {
 					allow_archetype ADDRESS[at0030] matches {    -- Addresses
 						include
-							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.address([a-zA-Z0-9_-]+)*\.v0/}
-							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.electronic_communication[a-zA-Z0-9_-]*\.v0/}
+							archetype_id/value matches {/.*/}
 					}
 				}
 			}
@@ -65,7 +64,7 @@ definition
 		relationships cardinality matches {1..*; unordered} matches {
 			PARTY_RELATIONSHIP[at0004] matches {    -- Relationships
 				details matches {
-					ITEM_TREE matches {
+					ITEM_TREE[at0005] matches {    -- ITEM_TREE
 						items cardinality matches {0..*; unordered} matches {
 							ELEMENT[at0040] matches {    -- Relationship type
 								value matches {
@@ -111,6 +110,10 @@ ontology
 				["at0040"] = <
 					text = <"Relationship type">
 					description = <"Defines the type of relationship between related persons.">
+				>
+				["at0005"] = <
+					text = <"ITEM_TREE">
+					description = <"">
 				>
 			>
 		>
