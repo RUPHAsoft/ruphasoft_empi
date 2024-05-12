@@ -32,7 +32,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"a67c7ccf93ebfb64d3114982e1621faa">
+		["MD5-CAM-1.0.1"] = <"e4705de5be7fe2f2ae55cbfa007a6c4c">
 		["build_uid"] = <"78b7a3b4-34a8-4f97-ad46-08050ea96115">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -43,6 +43,10 @@ definition
 			allow_archetype ITEM_TREE[at0001] matches {    -- Demographic details
 				include
 					archetype_id/value matches {/openEHR-DEMOGRAPHIC-ITEM_TREE\.person_details[a-zA-Z0-9_-]*\.v0/}
+			}
+			allow_archetype ITEM_STRUCTURE[at0041] occurrences matches {0..*} matches {    -- Person Details
+				include
+					archetype_id/value matches {/.*/}
 			}
 		}
 		identities cardinality matches {1..*; unordered} matches {
@@ -57,6 +61,24 @@ definition
 					allow_archetype ADDRESS[at0030] matches {    -- Addresses
 						include
 							archetype_id/value matches {/.*/}
+					}
+					ADDRESS[at0042] occurrences matches {0..*} matches {    -- Primary Contacts
+						details matches {
+							ITEM_TREE[at0043] matches {    -- Item tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0044] occurrences matches {0..3} matches {    -- Mobile Phone
+										value matches {
+											DV_IDENTIFIER matches {*}
+										}
+									}
+									ELEMENT[at0046] occurrences matches {0..3} matches {    -- Email Address
+										value matches {
+											DV_IDENTIFIER matches {*}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -113,6 +135,26 @@ ontology
 				>
 				["at0005"] = <
 					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Person Details">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Primary Contacts">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Mobile Phone">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Email Address">
 					description = <"">
 				>
 			>
