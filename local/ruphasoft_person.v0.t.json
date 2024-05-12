@@ -24,7 +24,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "0.0.1",
       "build_uid" : "86464d02-bcb6-42bf-93a3-a85b9840e004",
-      "MD5-CAM-1.0.1" : "4203625b052b22fc8268e8295b1d6f68",
+      "MD5-CAM-1.0.1" : "a3ef592d5aea28193ab848f1844f2d4e",
       "PARENT:MD5-CAM-1.0.1" : "c58f0b206dc3dd1b75f5293286b041fe"
     },
     "details" : {
@@ -58,7 +58,7 @@
       "children" : [ {
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "ITEM_TREE",
-        "occurrences" : "0..1",
+        "occurrences" : "1..1",
         "nodeId" : "at0001.1",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -71,7 +71,7 @@
       "children" : [ {
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "PARTY_IDENTITY",
-        "occurrences" : "0..1",
+        "occurrences" : "1..1",
         "nodeId" : "at0002.1",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -91,12 +91,56 @@
           "children" : [ {
             "@type" : "C_ARCHETYPE_ROOT",
             "rmTypeName" : "ADDRESS",
-            "occurrences" : "0..1",
+            "occurrences" : "1..1",
             "nodeId" : "at0030.1",
             "attributes" : [ ],
             "attributeTuples" : [ ],
             "archetypeRef" : "openEHR-DEMOGRAPHIC-ADDRESS.ovl-address-001.v0",
             "referenceType" : "archetypeOverlay"
+          } ]
+        } ],
+        "attributeTuples" : [ ]
+      } ]
+    }, {
+      "@type" : "C_ATTRIBUTE",
+      "rmAttributeName" : "relationships",
+      "children" : [ {
+        "@type" : "C_COMPLEX_OBJECT",
+        "rmTypeName" : "PARTY_RELATIONSHIP",
+        "nodeId" : "at0004",
+        "attributes" : [ {
+          "@type" : "C_ATTRIBUTE",
+          "rmAttributeName" : "details",
+          "children" : [ {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "ITEM_TREE",
+            "nodeId" : "at0005",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "items",
+              "children" : [ {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ELEMENT",
+                "nodeId" : "at0040.1",
+                "attributes" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "value",
+                  "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "DV_TEXT",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "DV_CODED_TEXT",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  } ]
+                } ],
+                "attributeTuples" : [ ]
+              } ]
+            } ],
+            "attributeTuples" : [ ]
           } ]
         } ],
         "attributeTuples" : [ ]
@@ -108,14 +152,7 @@
     "@type" : "ARCHETYPE_TERMINOLOGY",
     "conceptCode" : "at0000",
     "termDefinitions" : {
-      "en" : {
-        "at0000.1" : {
-          "@type" : "ARCHETYPE_TERM",
-          "code" : "at0000.1",
-          "text" : "ruphasoft_person.v0",
-          "description" : "Personal demographic data."
-        }
-      }
+      "en" : { }
     },
     "termBindings" : { },
     "terminologyExtracts" : { },
@@ -141,7 +178,68 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "bd7406ca247993cf8dce2db5cf37593b"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der demographischen Daten einer Person wie Geburtsdaten, Sterbedaten, Geschlecht, Familienstand, ethnische Gruppe und biometrischer Identifikator.",
+          "keywords" : [ "demographischer Bereich", "demographische Daten der Person" ],
+          "use" : "Der Archetyp wird im demographischen Bereich zur Erfassung der demografischen Daten einer Person verwendet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Representação de dados demográficos de uma pessoa, tais como dados do nascimento, do óbito, sexo, estado civil, grupo étnico e identificador biométrico",
+          "keywords" : [ "serviço demográfico", "dados demográficos de uma pessoa" ],
+          "use" : "Usado em serviço demográficos para coletar os dados demográficos de uma pessoa",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "Representation of a person's demographic data such as, birth data, death data, sex, marital status, ethnic group and biometric identifier",
+          "keywords" : [ "demographic service", "person's demographic data" ],
+          "use" : "Used in demographic service to collect a person's demographic data",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-py" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-py"
+          },
+          "purpose" : "Representación de los datos demográficos de una persona, tales como datos de nacimiento, de defunción, sexo, estado civil, grupo étnico e identificador biométrico.",
+          "keywords" : [ "servicio demográfico", "datos demográficos de una persona" ],
+          "use" : "Utilizado en servicios demográficos para recolectar los datos demográficos de una persona.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-DEMOGRAPHIC-ITEM_TREE.person_details.v0",
     "differential" : true,
@@ -237,7 +335,53 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "96A53BD3D515AAEE54FEC627CED1585C"
       },
-      "details" : { }
+      "details" : {
+        "ko" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ko"
+          },
+          "purpose" : "ISO/TS 22220 표준에 기반한 개인 이름의 표현",
+          "keywords" : [ "*serviço demográfico(pt-br)", "*nome de uma pessoa(pt-br)" ],
+          "use" : "Used to represent the names by which a person is known. ISO 22220 allows more than one usage for a name. openEHR reference model allows a single usage for a person name (indicated by the LOCATABLE class name attribute. This attribute should not be confused with the person name). Besides, two different names for a single person cannot have the same usage. If it is necessary to represent two or more usages for the same name, two PARTY_IDENTITY (ies) for the same person name (differing in the name attribute and possibly in the elements time validity and identifier) must be created. In case a person has two names with the same usage (for example, two aliases), the system must use different values in each name attribute ('alias1', 'alias2' ..., for instance). In this case, the ISO 22220 list of values allowed for name usage cannot be used. The application should ensure that either full name or family name be present.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Representação do nome de uma pessoa com base na norma ISO/TS 22220.",
+          "keywords" : [ "serviço demográfico", "nome de uma pessoa" ],
+          "use" : "Utilizado para representar os nomes que uma pessoa pode ter. A norma ISO 22220 permite que um mesmo nome possa ter vários usos. O modelo de referência do openEHR somente permite um único uso por nome (indicado pelo attribute name da classe LoCATABLE. Este atributo não deve ser confundido com o nome da pessoa). Além disso, dois nomes diferentes não podem possuir o mesmo uso. Caso seja necessário representar dois ou mais usos para o mesmo nome, é necessário criar dois PARTY_IDENTITYs para o mesmo nome da pessoa (diferindo no atributo 'name' e possivelmente nos elementos intervalo de utilização e identificador). Caso uma pessoa possua dois nomes com o mesmo uso (por exemplo, dois apelidos), e o sistema precisar armazená-los, então o sistema deverá usar em cada atributo 'name' valores diferentes para cada uso ('apelido1', 'apelido2' ..., por exemplo). Neste caso, a lista de valores permitidos para o uso do nome da norma da ISO22220 não poderá ser usada. A aplicação deve garantir que o nome completo ou o sobrenome da pessoa esteja presente.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "Representation of a personal name, based on ISO/TS 22220 standard.",
+          "keywords" : [ "demographic service", "person name" ],
+          "use" : "Used to represent the names by which a person is known. ISO 22220 allows more than one usage for a name. openEHR reference model allows a single usage for a person name (indicated by the LOCATABLE class name attribute. This attribute should not be confused with the person name). Besides, two different names for a single person cannot have the same usage. If it is necessary to represent two or more usages for the same name, two PARTY_IDENTITY (ies) for the same person name (differing in the name attribute and possibly in the elements time validity and identifier) must be created. In case a person has two names with the same usage (for example, two aliases), the system must use different values in each name attribute ('alias1', 'alias2' ..., for instance). In this case, the ISO 22220 list of values allowed for name usage cannot be used. The application should ensure that either full name or family name be present.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-DEMOGRAPHIC-PARTY_IDENTITY.person_name.v0",
     "differential" : true,
@@ -344,7 +488,72 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "7CEFE3CEEAF67739BC810002D7F1AF9E"
       },
-      "details" : { }
+      "details" : {
+        "ko" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ko"
+          },
+          "purpose" : "ISO 22220 표준에 기반한 개인/기관 주소에 대한 데이터의 표현. 이 주소는 지리학적 위치를 나타나면 여러 방식으로 사용할 수 있음 : 거주지 주소, 우편 주소 등.",
+          "keywords" : [ "*serviço demográfico(pt-br)", "*endereço(pt-br)", "*localização geográfica(pt-br)" ],
+          "use" : "통신과 진료서비스 제공 요구사항과 트렌드를 식별하며 직접적인 서비스를 제공하기 위하여 사용됨",
+          "misuse" : "이 archetype은 이메일 주소, IP 주소, 전화, 팩스 그리고 페이져를 위해 사용될 수 없다. 그러한 아이템들을 위해서는 electronic_communication archetype를 사용하라.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Representação dos detalhes do endereço de uma pessoa/organização com base na norma ISO 22220. Este endereço representa uma localização geográfica que pode ser utilizada para diversos fins: endereço residencial, endereço postal, etc.",
+          "keywords" : [ "serviço demográfico", "endereço", "localização geográfica" ],
+          "use" : "Usado para comunicação, identificar requisitos para provimento de serviços e tendências, e proporcionar serviços diretos.",
+          "misuse" : "Este arquétipo não deve ser usado para endereços de correio eletrônico, endereços IP, endereços de computador, telefone, fax e pager. Para estes itens, use o arquétipo electronic_communication.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "Representation of data about a personal/organizational address, based on ISO 22220 standard. This address represents a geographic location which can be used in several ways: residential address, postal address, etc.",
+          "keywords" : [ "demographic service", "address", "geographic location", "residential address" ],
+          "use" : "Used to communicate with, identify service provision requirements and trends, and to provide direct services.",
+          "misuse" : "This archetype can not used for email address, IP address, computer address, telephone, fax and pager. For these items use the electronic_communication archetype.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-py" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-py"
+          },
+          "purpose" : "Representación de los detalles de dirección de una persona/organización en base a la norma ISO 22220. Esta dirección representa una localización geográfica que puede ser utilizada para diversos fines: dirección residencial, dirección postal, etc.",
+          "keywords" : [ "servicio demográfico", "dirección", "localización geográfica" ],
+          "use" : "Utilizado para comunicación, identificar requerimientos para provisión de servicios y tendencias, y proporciona servicios directos.",
+          "misuse" : "Este arquetipo no debe ser usado para direcciones de correo electronico, direcciones IP, direcciones de computador, telefono, fax e pager. Para estos items, use el arquetipo electronic_communication.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-DEMOGRAPHIC-ADDRESS.address.v0",
     "differential" : true,
