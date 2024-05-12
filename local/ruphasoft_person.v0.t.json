@@ -22,10 +22,10 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.0.1",
+      "sem_ver" : "0.0.2",
       "build_uid" : "86464d02-bcb6-42bf-93a3-a85b9840e004",
-      "MD5-CAM-1.0.1" : "a3ef592d5aea28193ab848f1844f2d4e",
-      "PARENT:MD5-CAM-1.0.1" : "c58f0b206dc3dd1b75f5293286b041fe"
+      "MD5-CAM-1.0.1" : "a5764a3412ec75dd4c23d30d53155f97",
+      "PARENT:MD5-CAM-1.0.1" : "a67c7ccf93ebfb64d3114982e1621faa"
     },
     "details" : {
       "en" : {
@@ -77,29 +77,6 @@
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-DEMOGRAPHIC-PARTY_IDENTITY.ovl-person_name-001.v0",
         "referenceType" : "archetypeOverlay"
-      } ]
-    }, {
-      "@type" : "C_ATTRIBUTE",
-      "rmAttributeName" : "contacts",
-      "children" : [ {
-        "@type" : "C_COMPLEX_OBJECT",
-        "rmTypeName" : "CONTACT",
-        "nodeId" : "at0003",
-        "attributes" : [ {
-          "@type" : "C_ATTRIBUTE",
-          "rmAttributeName" : "addresses",
-          "children" : [ {
-            "@type" : "C_ARCHETYPE_ROOT",
-            "rmTypeName" : "ADDRESS",
-            "occurrences" : "1..1",
-            "nodeId" : "at0030.1",
-            "attributes" : [ ],
-            "attributeTuples" : [ ],
-            "archetypeRef" : "openEHR-DEMOGRAPHIC-ADDRESS.ovl-address-001.v0",
-            "referenceType" : "archetypeOverlay"
-          } ]
-        } ],
-        "attributeTuples" : [ ]
       } ]
     }, {
       "@type" : "C_ATTRIBUTE",
@@ -472,193 +449,6 @@
         "name" : "Sergio Miranda Freire",
         "organisation" : "Universidade do Estado do Rio de Janeiro - UERJ",
         "email" : "sergio@lampada.uerj.br"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "f2d4bbdf-d626-40cf-a457-1c3e5a5ab874",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "7CEFE3CEEAF67739BC810002D7F1AF9E"
-      },
-      "details" : {
-        "ko" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "ko"
-          },
-          "purpose" : "ISO 22220 표준에 기반한 개인/기관 주소에 대한 데이터의 표현. 이 주소는 지리학적 위치를 나타나면 여러 방식으로 사용할 수 있음 : 거주지 주소, 우편 주소 등.",
-          "keywords" : [ "*serviço demográfico(pt-br)", "*endereço(pt-br)", "*localização geográfica(pt-br)" ],
-          "use" : "통신과 진료서비스 제공 요구사항과 트렌드를 식별하며 직접적인 서비스를 제공하기 위하여 사용됨",
-          "misuse" : "이 archetype은 이메일 주소, IP 주소, 전화, 팩스 그리고 페이져를 위해 사용될 수 없다. 그러한 아이템들을 위해서는 electronic_communication archetype를 사용하라.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "pt-br" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "pt-br"
-          },
-          "purpose" : "Representação dos detalhes do endereço de uma pessoa/organização com base na norma ISO 22220. Este endereço representa uma localização geográfica que pode ser utilizada para diversos fins: endereço residencial, endereço postal, etc.",
-          "keywords" : [ "serviço demográfico", "endereço", "localização geográfica" ],
-          "use" : "Usado para comunicação, identificar requisitos para provimento de serviços e tendências, e proporcionar serviços diretos.",
-          "misuse" : "Este arquétipo não deve ser usado para endereços de correio eletrônico, endereços IP, endereços de computador, telefone, fax e pager. Para estes itens, use o arquétipo electronic_communication.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "Representation of data about a personal/organizational address, based on ISO 22220 standard. This address represents a geographic location which can be used in several ways: residential address, postal address, etc.",
-          "keywords" : [ "demographic service", "address", "geographic location", "residential address" ],
-          "use" : "Used to communicate with, identify service provision requirements and trends, and to provide direct services.",
-          "misuse" : "This archetype can not used for email address, IP address, computer address, telephone, fax and pager. For these items use the electronic_communication archetype.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "es-py" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "es-py"
-          },
-          "purpose" : "Representación de los detalles de dirección de una persona/organización en base a la norma ISO 22220. Esta dirección representa una localización geográfica que puede ser utilizada para diversos fines: dirección residencial, dirección postal, etc.",
-          "keywords" : [ "servicio demográfico", "dirección", "localización geográfica" ],
-          "use" : "Utilizado para comunicación, identificar requerimientos para provisión de servicios y tendencias, y proporciona servicios directos.",
-          "misuse" : "Este arquetipo no debe ser usado para direcciones de correo electronico, direcciones IP, direcciones de computador, telefono, fax e pager. Para estos items, use el arquetipo electronic_communication.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-DEMOGRAPHIC-ADDRESS.address.v0",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-DEMOGRAPHIC-ADDRESS.ovl-address-001.v0"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "ADDRESS",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "name",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "DV_TEXT",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "DV_CODED_TEXT",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "defining_code",
-            "children" : [ {
-              "@type" : "C_TERMINOLOGY_CODE",
-              "rmTypeName" : "CODE_PHRASE",
-              "occurrences" : "1..1",
-              "terminologyId" : {
-                "value" : "local"
-              },
-              "constraint" : [ "at0461", "at0462", "at0463", "at0464", "at0465", "at0466" ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "pt-br" : { },
-        "en" : { },
-        "es-py" : { },
-        "ko" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "42da4170-0cf2-435e-a1cd-2baa0cc29105",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "ko"
-      },
-      "author" : {
-        "name" : "Seung-Jong Yu",
-        "organisation" : "NOUSCO Co., Ltd.",
-        "email" : "seungjong.yu@gmail.com"
-      },
-      "accreditation" : "Certified Board of Family Medicine in Korea",
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "pt-br"
-      },
-      "author" : {
-        "name" : "Sergio Miranda Freire",
-        "organisation" : "Universidade do Estado do Rio de Janeiro - UERJ",
-        "email" : "sergio@lampada.uerj.br"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "es-py"
-      },
-      "author" : {
-        "name" : "Ellen Mendez",
-        "organisation" : "Facultad Politecnica UNA"
       },
       "otherDetails" : { }
     } ]
