@@ -1,5 +1,5 @@
-archetype (adl_version=1.4; uid=585e9ea9-cfaa-495f-ab69-e3c3d845ce6d)
-	openEHR-DEMOGRAPHIC-PERSON.person.v0
+archetype (adl_version=1.4; uid=00fa505b-8782-40ce-95fd-d417f1652de4)
+	openEHR-EHR-ADMIN_ENTRY.third_party_payer.v0
 
 concept
 	[at0000]
@@ -9,77 +9,45 @@ language
 
 description
 	original_author = <
-		["date"] = <"2009-05-22">
-		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
-		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
-		["email"] = <"sergio@lampada.uerj.br">
+		["date"] = <"2024-05-12">
+		["name"] = <"Mohamud A. Ali">
+		["organisation"] = <"RUPHAsoft">
+		["email"] = <"mohamud@rupha.co.ke">
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Rigoleta Dutra, Ministry of Defense, Brazil (openEHR Editor)","Sergio Freire, State University of Rio de Janeiro, Brazil (openEHR Editor)","Sebastian Garde, Ocean Informatics, Germany (Editor)","Omer Hotomaroglu, Turkey (Editor)","Heather Leslie, Ocean Informatics, Australia (Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)">
+	lifecycle_state = <"unmanaged">
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Representation of a person's demographic data.">
-			keywords = <"demographic service","person's data">
-			copyright = <"© openEHR Foundation">
-			use = <"Used in demographic service to collect a person's data.">
 		>
 	>
 	other_details = <
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
-		["references"] = <"ISO/TS 22220:2008(E) - Identification of Subject of Care - Technical Specification - International Organization for Standardization.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"58f6d401b26b5f9cd4b0c5be3feb2c05">
-		["build_uid"] = <"78b7a3b4-34a8-4f97-ad46-08050ea96115">
-		["revision"] = <"0.0.1-alpha">
+		["MD5-CAM-1.0.1"] = <"489ab722b6dd0cb8b5142af4eaa16450">
+		["build_uid"] = <"43c1c2c8-f856-36e5-82b7-b8fbe367d1b5">
 	>
 
 definition
-	PERSON[at0000] matches {    -- Person
-		details matches {
-			allow_archetype ITEM_TREE[at0001] matches {    -- Demographic details
-				include
-					archetype_id/value matches {/openEHR-DEMOGRAPHIC-ITEM_TREE\.person_details[a-zA-Z0-9_-]*\.v0/}
-			}
-			allow_archetype ITEM_STRUCTURE[at0041] occurrences matches {0..*} matches {    -- Person Details
-				include
-					archetype_id/value matches {/.*/}
-			}
-		}
-		identities cardinality matches {1..*; unordered} matches {
-			allow_archetype PARTY_IDENTITY[at0002] matches {    -- Name
-				include
-					archetype_id/value matches {/openEHR-DEMOGRAPHIC-PARTY_IDENTITY\.person_name[a-zA-Z0-9_-]*\.v0/}
-			}
-		}
-		contacts cardinality matches {1..*; unordered} matches {
-			CONTACT[at0003] matches {    -- Contacts
-				addresses cardinality matches {1..*; unordered} matches {
-					allow_archetype ADDRESS[at0030] matches {    -- Addresses
+	ADMIN_ENTRY[at0000] matches {    -- third_party_payer
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Insurance Provider
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
 						include
 							archetype_id/value matches {/.*/}
 					}
 				}
 			}
 		}
-		relationships cardinality matches {1..*; unordered} matches {
-			PARTY_RELATIONSHIP[at0004] matches {    -- Relationships
-				details matches {
-					ITEM_TREE[at0005] matches {    -- ITEM_TREE
-						items cardinality matches {0..*; unordered} matches {
-							ELEMENT[at0040] matches {    -- Relationship type
-								value matches {
-									DV_TEXT matches {*}
-									DV_CODED_TEXT matches {*}
-								}
-							}
-						}
-					}
-				}
-			}
+		archetype_details matches {
+			ARCHETYPED[at0006] matches {*}    -- ARCHETYPED
 		}
 	}
 
@@ -88,39 +56,23 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Person">
-					description = <"Personal demographic data.">
+					text = <"third_party_payer">
+					description = <"third_party_payer">
 				>
 				["at0001"] = <
-					text = <"Demographic details">
-					description = <"A person's demographic details.">
-				>
-				["at0002"] = <
-					text = <"Name">
-					description = <"A person's name.">
-				>
-				["at0003"] = <
-					text = <"Contacts">
-					description = <"A person's contacts.">
+					text = <"Item tree">
+					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"Relationships">
-					description = <"A person's relationships, especially family ties.">
-				>
-				["at0030"] = <
-					text = <"Addresses">
-					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
-				>
-				["at0040"] = <
-					text = <"Relationship type">
-					description = <"Defines the type of relationship between related persons.">
+					text = <"Insurance Provider">
+					description = <"Insurance Companies">
 				>
 				["at0005"] = <
-					text = <"ITEM_TREE">
+					text = <"CLUSTER_SLOT">
 					description = <"">
 				>
-				["at0041"] = <
-					text = <"Person Details">
+				["at0006"] = <
+					text = <"ARCHETYPED">
 					description = <"">
 				>
 			>
