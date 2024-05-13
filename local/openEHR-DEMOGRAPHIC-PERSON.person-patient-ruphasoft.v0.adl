@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"1b770855368a721c9704f48d71c5fa60">
+		["MD5-CAM-1.0.1"] = <"9e7e66eaa186a3a859cea7d12151ac31">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -91,14 +91,10 @@ definition
 				details matches {
 					ITEM_TREE[at0005] matches {    -- ITEM_TREE
 						items cardinality matches {0..*; unordered} matches {
-							ELEMENT[at0040.0.1] matches {    -- Relationship type
+							ELEMENT[at0.0.10] occurrences matches {0..1} matches {    -- Type
 								value matches {
+									DV_CODED_TEXT matches {*}
 									DV_TEXT matches {*}
-									DV_CODED_TEXT matches {
-										defining_code matches {
-											[ac0.0.1]
-										}
-									}
 								}
 							}
 						}
@@ -266,10 +262,6 @@ ontology
 					text = <"Primary Contact">
 					description = <"">
 				>
-				["at0040.0.1"] = <
-					text = <"Relationship type">
-					description = <"Defines the type of relationship between related persons.">
-				>
 				["at0.21.1"] = <
 					text = <"Healthcare consumer identifier.">
 					description = <"An identifier of the patient at the third-party payer.">
@@ -278,13 +270,10 @@ ontology
 					text = <"ADDRESS">
 					description = <"">
 				>
-			>
-		>
-	>
-	constraint_binding = <
-		["Patient relationship type"] = <
-			items = <
-				["ac0.0.1"] = <terminology://fhir.hl7.org/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype>
+				["at0.0.10"] = <
+					text = <"Type">
+					description = <"">
+				>
 			>
 		>
 	>
