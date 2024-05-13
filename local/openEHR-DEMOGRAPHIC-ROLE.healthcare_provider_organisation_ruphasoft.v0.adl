@@ -1,5 +1,5 @@
 archetype (adl_version=1.4; uid=25709764-7a60-4eca-b5b0-7c5f16ae7652)
-	openEHR-DEMOGRAPHIC-ROLE.healthcare_provider_organisation_ruphasoft.v0
+	openEHR-DEMOGRAPHIC-PERSON.healthcare_provider_organisation_ruphasoft.v0
 
 concept
 	[at0000]
@@ -63,7 +63,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"52e43847c1769ab9773291c2bbfd9687">
+		["MD5-CAM-1.0.1"] = <"b86d4d92554ab2963bd1e0f3f645b550">
 		["build_uid"] = <"e8f67257-6008-458a-8ebd-45135c009f90">
 		["revision"] = <"0.0.1-alpha">
 	>
