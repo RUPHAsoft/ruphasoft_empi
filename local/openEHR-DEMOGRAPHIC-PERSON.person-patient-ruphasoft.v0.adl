@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"6f79ffce9cf0aea07df8ef2028695900">
+		["MD5-CAM-1.0.1"] = <"c3402c00b0685c31fd03990fca904c65">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -207,10 +207,6 @@ ontology
 				>
 				["at0005"] = <
 					text = <"ITEM_TREE">
-					description = <"">
-				>
-				["at0041"] = <
-					text = <"Person Details">
 					description = <"">
 				>
 				["at0042"] = <
