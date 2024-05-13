@@ -64,7 +64,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"49ba0c5237dd7f64835106fd3d36f287">
+		["MD5-CAM-1.0.1"] = <"c3480b1c71781ca7d7d5694ccae23736">
 		["build_uid"] = <"58699189-8258-4acf-b51d-f0a0027b9d65">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -94,6 +94,11 @@ definition
 						}
 					}
 					ELEMENT[at0003] occurrences matches {0..*} matches {    -- Family name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {    -- Other Name
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -271,6 +276,10 @@ ontology
 					text = <"Nome temporário">
 					description = <"Indica que o nome da pessoa não foi determinado.">
 				>
+				["at0037"] = <
+					text = <"*Other Name (en)">
+					description = <"">
+				>
 			>
 		>
 		["en"] = <
@@ -379,6 +388,10 @@ ontology
 					text = <"Temporary name">
 					description = <"A temporary name issued where the subject's name has not been determined.">
 				>
+				["at0037"] = <
+					text = <"Other Name">
+					description = <"">
+				>
 			>
 		>
 		["ko"] = <
@@ -486,6 +499,10 @@ ontology
 				["at0036"] = <
 					text = <"일시적인 이름">
 					description = <"A temporary name issued where the subject's name has not been determined.">
+				>
+				["at0037"] = <
+					text = <"*Other Name (en)">
+					description = <"">
 				>
 			>
 		>
