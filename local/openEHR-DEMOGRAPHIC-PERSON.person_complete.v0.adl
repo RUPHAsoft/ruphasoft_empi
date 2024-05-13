@@ -1,0 +1,331 @@
+archetype (adl_version=1.4; uid=b7776a40-72b7-4abf-a39c-a23561daa93c)
+	openEHR-DEMOGRAPHIC-PERSON.person_complete.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-05-20">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"130ed46a910c5a122b8576f3574039a2">
+		["build_uid"] = <"5722b4f8-82a8-3764-9324-ae935f331f2e">
+	>
+
+definition
+	PERSON[at0000] matches {    -- person complete
+		details matches {
+			ITEM_TREE[at0001] matches {    -- ITEM_TREE
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0010] occurrences matches {0..1} matches {    -- Identifiers
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0011] occurrences matches {0..*} matches {    -- Identifier
+								value matches {
+									DV_IDENTIFIER matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		identities cardinality matches {1..*; unordered} matches {
+			PARTY_IDENTITY[at0003] occurrences matches {0..1} matches {    -- PARTY_IDENTITY
+				details matches {
+					ITEM_TREE[at0002] matches {    -- ITEM_TREE
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0007] occurrences matches {0..1} matches {    -- Full name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0008] occurrences matches {0..1} matches {    -- Date of birth
+								value matches {
+									DV_DATE matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {    -- Sex
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0033,    -- Masculine
+											at0034,    -- Feminine
+											at0035,    -- Unknown
+											at0036]    -- Other
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		contacts cardinality matches {1..*; unordered} matches {
+			CONTACT[at0004] occurrences matches {0..1} matches {    -- Contact means
+				addresses cardinality matches {1..*; unordered} matches {
+					ADDRESS[at0005] occurrences matches {0..1} matches {    -- Home address
+						details matches {
+							ITEM_TREE[at0012] matches {    -- ITEM_TREE
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Street address
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- City
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {    -- State / province / department
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Postal code
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {    -- Country
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+					ADDRESS[at0022] occurrences matches {0..1} matches {    -- Work address
+						details matches {
+							ITEM_TREE[at0013] matches {    -- ITEM_TREE
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Street address
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- City
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0025] occurrences matches {0..1} matches {    -- State / province / deparment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Postal code
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Country
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+					ADDRESS[at0028] occurrences matches {0..1} matches {    -- Phone number
+						details matches {
+							ITEM_TREE[at0014] matches {    -- ITEM_TREE
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0029] occurrences matches {0..1} matches {    -- Number
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {    -- Country code
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+					ADDRESS[at0031] occurrences matches {0..1} matches {    -- Email
+						details matches {
+							ITEM_TREE[at0019] matches {    -- ITEM_TREE
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0032] occurrences matches {0..1} matches {    -- Email address
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"person complete">
+					description = <"person complete">
+				>
+				["at0003"] = <
+					text = <"PARTY_IDENTITY">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Contact means">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Home address">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Street address">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Full name">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Date of birth">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Sex">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Identifiers">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Identifier">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"City">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"State / province / department">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Postal code">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Country">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Work address">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Street address">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"City">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"State / province / deparment">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Postal code">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Country">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Phone number">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Number">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Country code">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Email">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Email address">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Masculine">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Feminine">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Unknown">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Other">
+					description = <"">
+				>
+				["at0001"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+			>
+		>
+	>
