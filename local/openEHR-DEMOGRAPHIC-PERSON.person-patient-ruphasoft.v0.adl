@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"f98fafa112746823cfd2b82d9ee7c604">
+		["MD5-CAM-1.0.1"] = <"6f79ffce9cf0aea07df8ef2028695900">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -83,7 +83,7 @@ definition
 			}
 		}
 		relationships cardinality matches {1..*; unordered} matches {
-			PARTY_RELATIONSHIP[at0004.1] matches {    -- Relationships
+			PARTY_RELATIONSHIP[at0004.1.1] matches {    -- Relationships
 				details matches {
 					ITEM_TREE[at0005] matches {    -- ITEM_TREE
 						items cardinality matches {0..*; unordered} matches {
@@ -126,7 +126,6 @@ definition
 	}
 
 ontology
-	terminologies_available = <"Patient relationship type", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
@@ -265,6 +264,10 @@ ontology
 				["at0.0.10"] = <
 					text = <"Type">
 					description = <"">
+				>
+				["at0004.1.1"] = <
+					text = <"Relationships">
+					description = <"A patient's relationships, especially family ties.">
 				>
 			>
 		>
