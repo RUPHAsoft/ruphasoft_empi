@@ -1,0 +1,187 @@
+archetype (adl_version=1.4; uid=a62b9015-b973-4fa3-b7be-1797db2a576b)
+	openEHR-DEMOGRAPHIC-PERSON.person-patient-ruphasoft.v0
+specialize
+	openEHR-DEMOGRAPHIC-PERSON.person-patient.v0
+
+concept
+	[at0000.1.1]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2009-05-22">
+		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
+		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+		["email"] = <"sergio@lampada.uerj.br">
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Rigoleta Dutra, Ministry of Defense, Brazil (openEHR Editor)","Sergio Freire, State University of Rio de Janeiro, Brazil (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Representation of a patient's demographic data.">
+			keywords = <"demographic service","patient's data">
+			copyright = <"© openEHR Foundation">
+			use = <"Used in demographic service to collect a patient's data.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"ISO/TS 22220:2008(E) - Identification of Subject of Care - Technical Specification - International Organization for Standardization.">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"649b6cab06698784b4160ed278d0dd23">
+		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	PERSON[at0000.1.1] matches {    -- Patient
+		details matches {
+			allow_archetype ITEM_TREE[at0001.0.1] matches {    -- Demographic details
+				include
+					archetype_id/value matches {/openEHR-DEMOGRAPHIC-ITEM_TREE\.person_details[a-zA-Z0-9_-]*\.v0/}
+			}
+		}
+		identities cardinality matches {1..*; unordered} matches {
+			allow_archetype PARTY_IDENTITY[at0002.1] matches {    -- Name
+				include
+					archetype_id/value matches {/openEHR-DEMOGRAPHIC-PARTY_IDENTITY\.person_name[a-zA-Z0-9_-]*\.v0/}
+			}
+		}
+		contacts cardinality matches {1..*; unordered} matches {
+			CONTACT[at0003.1] matches {    -- Contacts
+				addresses cardinality matches {1..*; unordered} matches {
+					allow_archetype ADDRESS[at0030] matches {    -- Addresses
+						include
+							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.electronic_communication[a-zA-Z0-9_-]*\.v0/}
+							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.address([a-zA-Z0-9_]+)*\.v0/}
+					}
+				}
+			}
+		}
+		relationships cardinality matches {1..*; unordered} matches {
+			PARTY_RELATIONSHIP[at0004.1] matches {    -- Relationships
+				details matches {
+					ITEM_TREE[at0.40] matches {    -- Personal relationship
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0040] matches {    -- Relationship type
+								value matches {
+									DV_TEXT matches {*}
+									DV_CODED_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+			PARTY_RELATIONSHIP[at0.2] matches {    -- Third party payer
+				details matches {
+					ITEM_TREE[at0.20] matches {    -- Patient identifiers
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0.21] matches {    -- Healthcare consumer identifier.
+								include
+									archetype_id/value matches {/openEHR-DEMOGRAPHIC-CLUSTER\.person_identifier[a-zA-Z0-9_-]*\.v0/}
+							}
+						}
+					}
+				}
+			}
+			PARTY_RELATIONSHIP[at0.3] matches {    -- Healthcare provider/Health professional
+				details matches {
+					ITEM_TREE[at0.30] matches {    -- Patient identifiers
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0.31] matches {    -- Patient identifier
+								include
+									archetype_id/value matches {/openEHR-DEMOGRAPHIC-CLUSTER\.person_identifier[a-zA-Z0-9_-]*\.v0/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0001"] = <
+					text = <"Demographic details">
+					description = <"A patient's demographic details.">
+				>
+				["at0002"] = <
+					text = <"Name">
+					description = <"A person's name.">
+				>
+				["at0003"] = <
+					text = <"Contacts">
+					description = <"A person's contacts.">
+				>
+				["at0004"] = <
+					text = <"Relationships">
+					description = <"A person's relationships, especially family ties.">
+				>
+				["at0002.1"] = <
+					text = <"Name">
+					description = <"A patient's name.">
+				>
+				["at0003.1"] = <
+					text = <"Contacts">
+					description = <"A patient's contacts.">
+				>
+				["at0004.1"] = <
+					text = <"Relationships">
+					description = <"A patient's relationships, especially family ties.">
+				>
+				["at0030"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
+				>
+				["at0040"] = <
+					text = <"Relationship type">
+					description = <"Defines the type of relationship between related persons.">
+				>
+				["at0.2"] = <
+					text = <"Third party payer">
+					description = <"Relationship between the patient and a third-party payer.">
+				>
+				["at0.3"] = <
+					text = <"Healthcare provider/Health professional">
+					description = <"Patient: relationship between the patient and a healthcare provider organisation/health professional.">
+				>
+				["at0.40"] = <
+					text = <"Personal relationship">
+					description = <"Personal relationship.">
+				>
+				["at0.20"] = <
+					text = <"Patient identifiers">
+					description = <"Identifiers of the patient at the third-party payer.">
+				>
+				["at0.21"] = <
+					text = <"Healthcare consumer identifier.">
+					description = <"An identifier of the patient at the third-party payer.">
+				>
+				["at0.30"] = <
+					text = <"Patient identifiers">
+					description = <"Patient identifiers at the related healthcare provider.">
+				>
+				["at0.31"] = <
+					text = <"Patient identifier">
+					description = <"A patient identifier at the related healthcare provider.">
+				>
+				["at0000.1.1"] = <
+					text = <"Patient">
+					description = <"Patient demographic data.">
+				>
+				["at0001.0.1"] = <
+					text = <"Demographic details">
+					description = <"A patient's demographic details.">
+				>
+			>
+		>
+	>
