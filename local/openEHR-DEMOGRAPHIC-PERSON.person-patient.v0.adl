@@ -81,7 +81,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"6ED6B618C5805EC0F1B2172B3506190C">
+		["MD5-CAM-1.0.1"] = <"fbc25cb0d0dd980cc27fa0e65ba7f426">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -93,6 +93,10 @@ definition
 				include
 					archetype_id/value matches {/openEHR-DEMOGRAPHIC-ITEM_TREE\.person_details[a-zA-Z0-9_-]*\.v0/}
 			}
+			allow_archetype ITEM_STRUCTURE[at0041] occurrences matches {0..*} matches {    -- Person Details
+				include
+					archetype_id/value matches {/.*/}
+			}
 		}
 		identities cardinality matches {1..*; unordered} matches {
 			allow_archetype PARTY_IDENTITY[at0002.1] matches {    -- Name
@@ -103,10 +107,27 @@ definition
 		contacts cardinality matches {1..*; unordered} matches {
 			CONTACT[at0003.1] matches {    -- Contacts
 				addresses cardinality matches {1..*; unordered} matches {
-					allow_archetype ADDRESS[at0030] matches {    -- Addresses
+					allow_archetype ADDRESS[at0030.1] matches {    -- Addresses
 						include
-							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.electronic_communication[a-zA-Z0-9_-]*\.v0/}
-							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.address([a-zA-Z0-9_]+)*\.v0/}
+							archetype_id/value matches {/.*/}
+					}
+					ADDRESS[at0042] occurrences matches {0..*} matches {    -- Primary Contacts
+						details matches {
+							ITEM_TREE[at0043] matches {    -- Item tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0044] occurrences matches {0..3} matches {    -- Mobile Phone
+										value matches {
+											DV_IDENTIFIER matches {*}
+										}
+									}
+									ELEMENT[at0046] occurrences matches {0..3} matches {    -- Email Address
+										value matches {
+											DV_IDENTIFIER matches {*}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -114,6 +135,16 @@ definition
 		relationships cardinality matches {1..*; unordered} matches {
 			PARTY_RELATIONSHIP[at0004.1] matches {    -- Relationships
 				details matches {
+					ITEM_TREE[at0005] matches {    -- ITEM_TREE
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0040] matches {    -- Relationship type
+								value matches {
+									DV_TEXT matches {*}
+									DV_CODED_TEXT matches {*}
+								}
+							}
+						}
+					}
 					ITEM_TREE[at0.40] matches {    -- Personal relationship
 						items cardinality matches {0..*; unordered} matches {
 							ELEMENT[at0040] matches {    -- Relationship type
@@ -162,20 +193,20 @@ ontology
 					description = <"Dados do paciente.">
 				>
 				["at0001"] = <
-					text = <"Detalhes">
-					description = <"Detalhes demográficos do paciente.">
+					text = <"Demographic details">
+					description = <"A person's demographic details.">
 				>
 				["at0002"] = <
-					text = <"Nome">
-					description = <"Conjunto de dados que especificam o nome da pessoa.">
+					text = <"Name">
+					description = <"A person's name.">
 				>
 				["at0003"] = <
-					text = <"Contatos">
-					description = <"Contatos da pessoa.">
+					text = <"Contacts">
+					description = <"A person's contacts.">
 				>
 				["at0004"] = <
-					text = <"Relacionamentos">
-					description = <"Relacionamentos de uma pessoa, especialmente laços familiares.">
+					text = <"Relationships">
+					description = <"A person's relationships, especially family ties.">
 				>
 				["at0002.1"] = <
 					text = <"Nome">
@@ -190,12 +221,12 @@ ontology
 					description = <"Relacionamentos de um paciente, especialmente laços familiares.">
 				>
 				["at0030"] = <
-					text = <"Endereço">
-					description = <"Endereços vinculados a um único contato, ou seja, com o mesmo período de validade.">
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 				["at0040"] = <
-					text = <"Grau de parentesco">
-					description = <"Define o grau de parentesco entre as pessoas envolvidas.">
+					text = <"Relationship type">
+					description = <"Defines the type of relationship between related persons.">
 				>
 				["at0.2"] = <
 					text = <"Fonte pagadora">
@@ -225,6 +256,38 @@ ontology
 					text = <"Identificação no prestador">
 					description = <"Documento de identificação do paciente junto ao prestador.">
 				>
+				["at0000"] = <
+					text = <"Person">
+					description = <"Personal demographic data.">
+				>
+				["at0005"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Person Details">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Primary Contacts">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Mobile Phone">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Email Address">
+					description = <"">
+				>
+				["at0030.1"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
+				>
 			>
 		>
 		["en"] = <
@@ -235,19 +298,7 @@ ontology
 				>
 				["at0001"] = <
 					text = <"Demographic details">
-					description = <"A patient's demographic details.">
-				>
-				["at0002"] = <
-					text = <"Name">
-					description = <"A person's name.">
-				>
-				["at0003"] = <
-					text = <"Contacts">
-					description = <"A person's contacts.">
-				>
-				["at0004"] = <
-					text = <"Relationships">
-					description = <"A person's relationships, especially family ties.">
+					description = <"A person's demographic details.">
 				>
 				["at0002.1"] = <
 					text = <"Name">
@@ -260,14 +311,6 @@ ontology
 				["at0004.1"] = <
 					text = <"Relationships">
 					description = <"A patient's relationships, especially family ties.">
-				>
-				["at0030"] = <
-					text = <"Addresses">
-					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
-				>
-				["at0040"] = <
-					text = <"Relationship type">
-					description = <"Defines the type of relationship between related persons.">
 				>
 				["at0.2"] = <
 					text = <"Third party payer">
@@ -296,6 +339,58 @@ ontology
 				["at0.31"] = <
 					text = <"Patient identifier">
 					description = <"A patient identifier at the related healthcare provider.">
+				>
+				["at0000"] = <
+					text = <"Person">
+					description = <"Personal demographic data.">
+				>
+				["at0002"] = <
+					text = <"Name">
+					description = <"A person's name.">
+				>
+				["at0003"] = <
+					text = <"Contacts">
+					description = <"A person's contacts.">
+				>
+				["at0004"] = <
+					text = <"Relationships">
+					description = <"A person's relationships, especially family ties.">
+				>
+				["at0030"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
+				>
+				["at0040"] = <
+					text = <"Relationship type">
+					description = <"Defines the type of relationship between related persons.">
+				>
+				["at0005"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Person Details">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Primary Contacts">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Mobile Phone">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Email Address">
+					description = <"">
+				>
+				["at0030.1"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 			>
 		>
@@ -334,40 +429,72 @@ ontology
 					description = <"환자 인적 데이터">
 				>
 				["at0001"] = <
-					text = <"인적정보 상세내용">
-					description = <"환자의 인적정보 상세내용">
+					text = <"Demographic details">
+					description = <"A person's demographic details.">
 				>
 				["at0002"] = <
-					text = <"*Nome(pt-br)">
-					description = <"*Conjunto de dados que especificam o nome da pessoa.(pt-br)">
+					text = <"Name">
+					description = <"A person's name.">
 				>
 				["at0002.1"] = <
 					text = <"이름">
 					description = <"환자이름">
 				>
 				["at0003"] = <
-					text = <"*Contatos(pt-br)">
-					description = <"*Contatos da pessoa.(pt-br)">
+					text = <"Contacts">
+					description = <"A person's contacts.">
 				>
 				["at0003.1"] = <
 					text = <"연락처">
 					description = <"환자의 연락처">
 				>
 				["at0004"] = <
-					text = <"*Relacionamentos(pt-br)">
-					description = <"*Relacionamentos de uma pessoa, especialmente laços familiares.(pt-br)">
+					text = <"Relationships">
+					description = <"A person's relationships, especially family ties.">
 				>
 				["at0004.1"] = <
 					text = <"관계">
 					description = <"환자의 관계, 특히 가족관계">
 				>
 				["at0030"] = <
-					text = <"주소">
-					description = <"단일한 연락처에 연결된 주소, 즉. 동시간 검증됨.">
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 				["at0040"] = <
-					text = <"관계타입">
-					description = <"관련된 개인들 간의 관계의 타입을 정의.">
+					text = <"Relationship type">
+					description = <"Defines the type of relationship between related persons.">
+				>
+				["at0000"] = <
+					text = <"Person">
+					description = <"Personal demographic data.">
+				>
+				["at0005"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Person Details">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Primary Contacts">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Mobile Phone">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Email Address">
+					description = <"">
+				>
+				["at0030.1"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 			>
 		>
@@ -406,40 +533,72 @@ ontology
 					description = <"Datos del paciente.">
 				>
 				["at0001"] = <
-					text = <"Detalles">
-					description = <"Detalles demográficos del paciente.">
+					text = <"Demographic details">
+					description = <"A person's demographic details.">
 				>
 				["at0002"] = <
-					text = <"*Nome(pt-br)">
-					description = <"*Conjunto de dados que especificam o nome da pessoa.(pt-br)">
+					text = <"Name">
+					description = <"A person's name.">
 				>
 				["at0002.1"] = <
 					text = <"Nombre">
 					description = <"Conjunto de datos que especifican el nombre del paciente.">
 				>
 				["at0003"] = <
-					text = <"*Contatos(pt-br)">
-					description = <"*Contatos da pessoa.(pt-br)">
+					text = <"Contacts">
+					description = <"A person's contacts.">
 				>
 				["at0003.1"] = <
 					text = <"Contactos">
 					description = <"Contactos de la persona.">
 				>
 				["at0004"] = <
-					text = <"*Relacionamentos(pt-br)">
-					description = <"*Relacionamentos de uma pessoa, especialmente laços familiares.(pt-br)">
+					text = <"Relationships">
+					description = <"A person's relationships, especially family ties.">
 				>
 				["at0004.1"] = <
 					text = <"Relacionamiento">
 					description = <"Relacionamientos de un paciente, especialmente lazos familiares.">
 				>
 				["at0030"] = <
-					text = <"Dirección">
-					description = <"Direcciones vinculadas a un único contacto, o sea, con el mismo periodo de validad.">
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 				["at0040"] = <
-					text = <"Grado de parentesco">
-					description = <"Define el grado de parentesco entre las personas involucradas.">
+					text = <"Relationship type">
+					description = <"Defines the type of relationship between related persons.">
+				>
+				["at0000"] = <
+					text = <"Person">
+					description = <"Personal demographic data.">
+				>
+				["at0005"] = <
+					text = <"ITEM_TREE">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Person Details">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Primary Contacts">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Mobile Phone">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Email Address">
+					description = <"">
+				>
+				["at0030.1"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
 				>
 			>
 		>
