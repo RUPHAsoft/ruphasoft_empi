@@ -49,7 +49,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"ac9c78a35b0cc4f842e3956fbde4451b">
+		["MD5-CAM-1.0.1"] = <"f79921f2fe4d6012a5be96c244b57b84">
 		["build_uid"] = <"32f819fc-2bba-414e-9dce-a40c48dfcb61">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -104,6 +104,11 @@ definition
 					}
 				}
 			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Namespace
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
 		}
 	}
 
@@ -155,6 +160,10 @@ ontology
 					text = <"National">
 					description = <"Indicates that this identifier is used nationally.">
 				>
+				["at0014"] = <
+					text = <"Namespace">
+					description = <"">
+				>
 			>
 		>
 		["pt-br"] = <
@@ -202,6 +211,10 @@ ontology
 				["at0013"] = <
 					text = <"Nacional">
 					description = <"Indica que esta identificação é usada em nível nacional.">
+				>
+				["at0014"] = <
+					text = <"*Namespace (en)">
+					description = <"">
 				>
 			>
 		>
