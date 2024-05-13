@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"200b4c5ffd36ed209ffcf1bdff2088ff">
+		["MD5-CAM-1.0.1"] = <"e09def53519eea85c6110ebe6b0ffae3">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -56,7 +56,7 @@ definition
 		contacts cardinality matches {1..*; unordered} matches {
 			CONTACT[at0003.1.1] matches {    -- Contacts
 				addresses cardinality matches {1..*; unordered} matches {
-					ADDRESS[at0042.0.1] occurrences matches {0..3} matches {    -- Primary Contacts
+					ADDRESS[at0042.0.1] occurrences matches {0..1} matches {    -- Primary Contacts
 						details matches {
 							ITEM_TREE[at0043] matches {    -- Item tree
 								items cardinality matches {0..*; unordered} matches {
