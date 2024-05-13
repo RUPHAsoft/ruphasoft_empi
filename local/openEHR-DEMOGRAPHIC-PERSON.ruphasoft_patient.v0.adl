@@ -1,0 +1,120 @@
+archetype (adl_version=1.4; uid=25a8c76c-9f8a-4813-8754-b9b5effbd18d)
+	openEHR-DEMOGRAPHIC-PERSON.ruphasoft_patient.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2024-05-13">
+		["name"] = <"Mohamud A. Ali">
+		["organisation"] = <"RUPHAsoft">
+		["email"] = <"mohamud@rupha.co.ke">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"e8c00b5870bcfd3a4b4f21a53bcc19db">
+		["build_uid"] = <"96eeb503-6b0d-3f60-be13-53fa300eed56">
+	>
+
+definition
+	PERSON[at0000] matches {    -- Ruphasoft Patient
+		contacts cardinality matches {1..*; unordered} matches {
+			CONTACT[at0001] occurrences matches {0..1} matches {    -- CONTACT
+				addresses cardinality matches {1..*; unordered} matches {
+					allow_archetype ADDRESS[at0007] occurrences matches {0..*} matches {    -- address
+						include
+							archetype_id/value matches {/.*|openEHR-DEMOGRAPHIC-ADDRESS\.address\.v0/}
+					}
+				}
+			}
+		}
+		details matches {
+			ITEM_TREE[at0009] matches {*}    -- Item tree
+		}
+		identities cardinality matches {1..*; unordered} matches {
+			PARTY_IDENTITY[at0010] occurrences matches {0..1} matches {*}    -- PARTY_IDENTITY
+			allow_archetype PARTY_IDENTITY[at0012] occurrences matches {0..*} matches {    -- Insurance
+				include
+					archetype_id/value matches {/openEHR-DEMOGRAPHIC-PARTY_IDENTITY\.organisation_name\.v0/}
+			}
+		}
+		relationships cardinality matches {1..*; unordered} matches {
+			PARTY_RELATIONSHIP[at0011] occurrences matches {0..1} matches {    -- PARTY_RELATIONSHIP
+				details matches {
+					ITEM_TREE[at0015] matches {    -- Item tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Relations
+								include
+									archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.person\.v1/}
+							}
+						}
+					}
+				}
+			}
+		}
+		type matches {
+			DV_TEXT[at0013] matches {*}    -- Sites
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ruphasoft Patient">
+					description = <"Ruphasoft Patient">
+				>
+				["at0001"] = <
+					text = <"CONTACT">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"address">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"PARTY_IDENTITY">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"PARTY_RELATIONSHIP">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Insurance">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Sites">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Relations">
+					description = <"">
+				>
+			>
+		>
+	>
