@@ -78,9 +78,9 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"c369b6380d87dee731fa270d1974dffa">
 		["build_uid"] = <"f3e02a6f-69d2-4754-acea-30e7bebdf7d2">
 		["revision"] = <"0.0.1-alpha">
-		["MD5-CAM-1.0.1"] = <"bd7406ca247993cf8dce2db5cf37593b">
 	>
 
 definition
