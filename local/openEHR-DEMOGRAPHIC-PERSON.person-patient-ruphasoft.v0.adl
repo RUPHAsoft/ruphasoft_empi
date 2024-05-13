@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9e7e66eaa186a3a859cea7d12151ac31">
+		["MD5-CAM-1.0.1"] = <"2188b4d11ac69d0fa6365517bfc3787d">
 		["build_uid"] = <"9b7b75b2-5937-4aa6-98c2-75689af305e9">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -79,7 +79,7 @@ definition
 							}
 						}
 					}
-					allow_archetype ADDRESS[at0.0.9] occurrences matches {0..*} matches {    -- ADDRESS
+					allow_archetype ADDRESS[at0.0.9] occurrences matches {0..1} matches {    -- ADDRESS
 						include
 							archetype_id/value matches {/openEHR-DEMOGRAPHIC-ADDRESS\.address\.v0/}
 					}
