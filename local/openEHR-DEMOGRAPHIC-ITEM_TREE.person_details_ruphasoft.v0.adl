@@ -31,13 +31,13 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"12791e103477d9c5ca15f740ba60ad55">
+		["MD5-CAM-1.0.1"] = <"3ce35e9c00c0598c93da1cf1fd23352a">
 		["build_uid"] = <"f3e02a6f-69d2-4754-acea-30e7bebdf7d2">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	ITEM_TREE[at0000] matches {    -- person_details_ruphasoft
+	ITEM_TREE[at0000] occurrences matches {0..1} matches {    -- person_details_ruphasoft
 		items cardinality matches {1..*; ordered} matches {
 			CLUSTER[at0001] matches {    -- Birth data
 				items cardinality matches {1..*; unordered} matches {
